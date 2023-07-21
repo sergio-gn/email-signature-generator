@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html land="en" ng-app="signature">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="angular.min.js"></script>
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <style>
+        table,
+        td,
+        th {
+            border: none;
+        }
+        .red-border {
+            border-left: 2px solid #CE0101 !important;
+        }
+    </style>
+</head>
+
+<body ng-controller="signatureController" class="bg-light" style="font-family: 'Poppins', sans-serif; color: #000;">
+    <div class="container py-5 ">
+        <h1 class="mb-5">Signature Tool</h1>
+        <h3 class="mb-3">Step 1</h3>
+        <span style="color:#A6A8AB;">Please change the following info to yours.</span>
+        <hr>
+        <div class="form-group row mb-4">
+            <label for="name" class="col-sm-2 col-form-label">Your Name:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="name" ng-model="Name" placeholder="Enter your name here">
+            </div>
+        </div>
+        <div class="form-group row mb-4">
+            <label for="position" class="col-sm-2 col-form-label">Your Position:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="position" ng-model="Position"
+                    placeholder="Enter your position here">
+            </div>
+        </div>
+        <div class="form-group row mb-4">
+            <label for="phone" class="col-sm-2 col-form-label">Your Phone:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="phone" ng-model="phone" placeholder="Enter your phone">
+            </div>
+        </div>
+        <div class="form-group row mb-4">
+            <label for="email" class="col-sm-2 col-form-label">Your Email:</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="email" ng-model="email" placeholder="Enter your Email">
+            </div>
+        </div>
+        <h3 class="mb-3">Step 2</h3>
+        <span style="color:#A6A8AB;">Copy & paste the following content into your outlook signature area.</span>
+        <hr>
+        <table cellpadding="10" cellspacing="2" style="width: 650px; background-color:#fff; margin: 0 auto">
+            <tbody>
+                <tr>
+                    <td style="border-top:none;border-left:none;border-right:none;border-bottom:1px solid #ABA1A1">
+                        <table cellspacing="1" cellpadding="3">
+                            <tbody>
+                                <tr>
+                                    <td style="padding-right: 20px;">
+                                        <a href="#"> <img src="images/logo.png" alt="Logo"></a>
+                                    </td>
+                                    <td>
+                                        <table cellspacing="0" cellpadding="1" style="padding-left: 15px;">
+                                            <tbody>
+                                                <tr>
+                                                    <th id="nameResult" class="hero_name" style="text-align: left;padding-bottom: 0px;font-size: 14px; padding-left: 10px; border-left:2px solid #CE0101">
+                                                        {{Name}}
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <td id="positionResult" class="job_designation" style="padding-bottom: 5px;font-size: 11px;color: #CE0101; padding-left: 10px;border-left:2px solid #CE0101">
+                                                        {{Position}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding-left: 10px;border-left:2px solid #CE0101">
+                                                        <table cellspacing="0" cellpadding="0" style="padding-bottom: 0px;line-height: 16px;">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td
+                                                                        style="vertical-align: middle;padding-top: 3px;">
+                                                                        <img src="images/ph.png" alt="Phone">
+                                                                    </td>
+                                                                    <td class="phoneNumber" id="phoneResult"
+                                                                        style="font-size: 11px;padding-left: 10px;vertical-align: middle;">
+                                                                        <a href="tel:{{phone}}"
+                                                                            style="color: #000; text-decoration: none;">{{phone}}</a><span
+                                                                            style="padding-left: 5px;padding-right: 5px;color: #CE0101;"></span>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding-left: 10px;border-left:2px solid #CE0101">
+                                                        <table cellspacing="0" cellpadding="0"
+                                                            style="padding-bottom: 0px;line-height: 16px;">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td style="vertical-align: middle;padding-top: 3px;">
+                                                                        <img src="images/website.png" alt="website">
+                                                                    </td>
+                                                                    <td class="phoneNumber" id="phoneResult"
+                                                                        style="font-size: 11px;padding-left: 10px;vertical-align: middle;">
+                                                                        <a target="_blank" style="color: #000; text-decoration: none;" href="https://thermalscanners.com.au/">
+                                                                            thermalscanners.com.au
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding-left: 10px;border-left:2px solid #CE0101">
+                                                        <table cellspacing="0" cellpadding="0"
+                                                            style="padding-bottom: 0px;line-height: 16px;">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td style="vertical-align: middle;padding-top: 3px;">
+                                                                        <img src="images/mail.png" alt="email">
+                                                                    </td>
+                                                                    <td class="email" id="emailResult"
+                                                                        style="font-size: 11px;padding-left: 10px;vertical-align: middle;">
+                                                                        <a style="color: #000; text-decoration: none;" href="mailto:{{email}}">
+                                                                            {{email}}
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-top:none;border-left:none;border-right:none;border-bottom:1px solid #ABA1A1">
+                        <table cellspacing="0" cellpadding="2">
+                            <tbody>
+                                <tr>
+                                    <td style="padding-right: 30px; width: 160px; vertical-align: middle;">
+                                        <table cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                                <tr>
+                                                    <th id="nameResult" class="hero_name" style="text-align: left;padding-bottom: 5px;font-size: 11px;line-height: 11px;">
+                                                        Queensland
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding-bottom: 5px;">
+                                                        <a target="_blank" href="https://www.google.com/maps/place/1%2F27+Service+St,+Maroochydore+QLD+4558/@-26.6513094,153.0631505,17z/data=!3m1!4b1!4m6!3m5!1s0x6b9376535daceaad:0x61c8f518be6d3108!8m2!3d-26.6513094!4d153.0631505!16s%2Fg%2F11tn_3hsww" style="color: #000;text-decoration: none;font-size: 11px;line-height: 14px;display: block;">
+                                                            Unit 1/27 Service St, Maroochydore QLD 4558
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td style="padding-right: 30px; width:140px;vertical-align: middle;">
+                                        <table cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                                <tr>
+                                                    <th id="nameResult" class="hero_name" style="text-align: left;padding-bottom: 5px;font-size: 11px;line-height: 11px;">
+                                                        Victoria
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding-bottom: 5px;"><a target="_blank"
+                                                            href="https://www.google.com/maps/place/126%2F135+Cardigan+St,+Carlton+VIC+3053/data=!4m2!3m1!1s0x6ad642d27aa40001:0xb9df5a94c0221c3b?sa=X&ved=2ahUKEwiw9vCghrz9AhVmg2MGHVlcBQgQ8gF6BAgdEAI"
+                                                            style="color: #000;text-decoration: none;font-size: 11px;line-height: 14px;display: block;">
+                                                            126/135 Cardigan St, Carlton VIC 3053</a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td style="padding-right: 30px; width: 180px;vertical-align: middle;">
+                                        <table cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                                <tr>
+                                                    <th id="nameResult" class="hero_name" style="text-align: left;padding-bottom: 5px;font-size: 11px;line-height: 11px;">
+                                                        New South Wales
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding-bottom: 5px;">
+                                                        <a target="_blank" href="https://www.google.com/maps/place/Level+2+Suite+24%2F35+Clarence+St,+Sydney+NSW+2000/data=!4m2!3m1!1s0x6b12ae4132efffff:0xc57b28b7fcdcfc08?sa=X&ved=2ahUKEwiK_cO9hrz9AhUU-DgGHXACDmgQ8gF6BAgdEAI" style="color: #000;text-decoration: none;font-size: 11px;line-height: 14px;display: block;">
+                                                            Level 2 Suite 24/35 Clarence St, Sydney NSW 2000
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-top:none;border-left:none;border-right:none;border-bottom:1px solid #ABA1A1">
+                        <table cellspacing="0" cellpadding="2">
+                            <tbody>
+                                <tr>
+                                    <td style="padding-right: 5px;">
+                                        <table cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                                <td>
+                                                    <img src="images/certificate-1.png" alt="certificate">
+                                                </td>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td style="padding-right: 10px;">
+                                        <table cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                                <td>
+                                                    <img src="images/certificate-3.png" alt="certificate">
+                                                </td>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table cellpadding="0" cellspacing="0" style="max-width: 700px; padding-top: 2px;">
+                            <tbody>
+                                <tr>
+                                    <td class="disclaimer" style="color: #ABA1A1;font-size: 7px;">
+                                        disclaimer message
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="bootstrap.bundle.min.js"></script>
+    <script type="text/javascript">
+        angular.module('signature', []).controller('signatureController', function ($scope) {
+            $scope.Name = 'Firstname Lastname';
+            $scope.Position = 'Job Title';
+            $scope.email = 'email@example.com.au';
+            $scope.phone = '8500 855 955';
+        })
+            .filter('to_html', ['$sce', function ($sce) {
+                return function (text) {
+                    return $sce.trustAsHtml(text);
+                };
+            }]);
+    </script>
+</body>
+</html>
